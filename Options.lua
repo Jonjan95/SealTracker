@@ -16,7 +16,7 @@ end
 
 local function CreatePanel()
     panel = CreateFrame("Frame", "SealTrackerOptions", UIParent, "BasicFrameTemplateWithInset")
-    panel:SetSize(300, 296)
+    panel:SetSize(300, 268)
     panel:SetPoint("CENTER")
     panel:SetFrameStrata("DIALOG")
     panel:SetMovable(true)
@@ -37,13 +37,11 @@ local function CreatePanel()
     panel.checks = {
         Checkbox(panel, "Lock position", -34,
             function() return db.locked end, function(v) db.locked = v; Changed() end),
-        Checkbox(panel, "Only show with Unsealed Wrath", -62,
-            function() return db.talentOnly end, function(v) db.talentOnly = v; Changed() end),
-        Checkbox(panel, "Show leftover Echo pips above icon", -90,
+        Checkbox(panel, "Show leftover Echo pips above icon", -62,
             function() return db.showLeftover end, function(v) db.showLeftover = v; Changed() end),
-        Checkbox(panel, "Hide when no seal is up (once locked)", -118,
+        Checkbox(panel, "Hide when no seal is up (once locked)", -90,
             function() return db.hideNoSeal end, function(v) db.hideNoSeal = v; Changed() end),
-        Checkbox(panel, "Show minimap button", -146,
+        Checkbox(panel, "Show minimap button", -118,
             function() return not db.minimap.hide end,
             function(v) db.minimap.hide = not v; ns.UpdateMinimapButton() end),
     }
@@ -61,7 +59,7 @@ local function CreatePanel()
         local label = slider:CreateFontString(slider:GetName() .. "Text", "OVERLAY", "GameFontHighlight")
         label:SetPoint("BOTTOM", slider, "TOP", 0, 2)
     end
-    slider:SetPoint("TOPLEFT", 24, -196)
+    slider:SetPoint("TOPLEFT", 24, -168)
     slider:SetWidth(250)
     slider:SetMinMaxValues(0.5, 2.5)
     slider:SetValueStep(0.05)

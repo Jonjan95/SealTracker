@@ -1,6 +1,6 @@
 # Seal Tracker
 
-A small seal tracker for Retribution Paladins running **Unsealed Wrath** on World of Warcraft Forever.
+A small seal tracker for Paladins on World of Warcraft Forever, built around **Unsealed Wrath** for Retribution. It works on every spec: without the talent you get the seal icon and timer, with no Echo stacks.
 
 WoW Forever hides seal and Echo buffs from addons in combat. Instead of guessing, Seal Tracker lets the game draw everything itself (Blizzard's AuraContainer display), so the seal timer, Echo stacks and swap glow stay correct in combat.
 
@@ -18,7 +18,6 @@ Tracked seals: Command, Righteousness, Wisdom, Fury, Justice, Light and the Crus
 Open them with the minimap button, the addon list button by the minimap, or `/st`.
 
 - Lock position (drag the icon to move it while unlocked)
-- Only show with the Unsealed Wrath talent
 - Show leftover Echo dots above the icon
 - Hide when no seal is up (once locked)
 - Show minimap button

@@ -52,7 +52,7 @@ local NO_SEAL_ICON = "Interface\\Icons\\ClassIcon_Paladin"
 
 local defaults = {
     point = "CENTER", relativePoint = "CENTER", x = 0, y = -160, scale = 1,
-    locked = false, talentOnly = true, showLeftover = true, hideNoSeal = false,
+    locked = false, showLeftover = true, hideNoSeal = false,
     minimap = { hide = false, angle = 215 },
     echoIDs = {}, sealIDs = {}, lastSeal = nil,
 }
@@ -162,10 +162,14 @@ local function SealIcon(key)
     return tex or NO_SEAL_ICON
 end
 
+-- Shown on every Paladin, any spec: seals are tracked with or without Unsealed
+-- Wrath (without it there are simply no Echo stacks to show).
 function ns.IsRelevant()
     local _, class = UnitClass("player")
-    if class ~= "PALADIN" then return false end
-    if not db.talentOnly then return true end
+    return class == "PALADIN"
+end
+
+local function HasUnsealedWrath()
     for _, fn in ipairs({ IsPlayerSpell, IsSpellKnown, C_SpellBook and C_SpellBook.IsSpellKnown }) do
         if type(fn) == "function" then
             local ok, known = pcall(fn, UNSEALED_WRATH)
@@ -529,7 +533,7 @@ function ns.Status()
     end
     Print("display " .. status .. ".")
     Print("Echo known for: " .. table.concat(known, ", "))
-    Print("current seal: " .. tostring(activeKey) .. ", Unsealed Wrath known: " .. tostring(ns.IsRelevant()))
+    Print("current seal: " .. tostring(activeKey) .. ", Unsealed Wrath known: " .. tostring(HasUnsealedWrath()))
 end
 
 function ns.ResetPosition()

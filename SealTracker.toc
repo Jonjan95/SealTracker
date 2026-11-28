@@ -2,7 +2,7 @@
 ## Title: Seal Tracker
 ## Notes: Small Unsealed Wrath tracker: your active seal with its timer, Echo pips and a glow at 3, and the previous seal's leftover Echo above. Drawn by the game itself, so it stays right in combat.
 ## Author: Jonis
-## Version: 0.1.3
+## Version: 0.1.4
 ## SavedVariables: SealTrackerDB
 ## IconTexture: Interface\Icons\ClassIcon_Paladin
 ## AddonCompartmentFunc: SealTracker_OnAddonCompartmentClick
